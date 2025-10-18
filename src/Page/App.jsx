@@ -5,34 +5,34 @@ import Card from '../Components/Card';
 import Loading from '../Components/Loading';
 
 const Apps = () => {
-    const { apps, loading } = useHooksData();
-    const [search, setSearch] = useState('');
-    const [searchLoading, setSearchLoading] = useState(false);
+    const { appsCard, loadingCard } = useHooksData();
+    const [searchapp, setSearchapp] = useState('');
+    const [searchLoadingapp, setSearchLoadingapp] = useState(false);
     const [searchedApps, setSearchedApps] = useState([]);
 
     useEffect(() => {
-        setSearchedApps(apps);
-    }, [apps]);
+        setSearchedApps(appsCard);
+    }, [appsCard]);
 
     useEffect(() => {
-        if (search.trim()) {
-            setSearchLoading(true);
+        if (searchapp.trim()) {
+            setSearchLoadingapp(true);
             const timer = setTimeout(() => {
-                const term = search.trim().toLowerCase();
-                const filtered = apps.filter(app =>
+                const term = searchapp.trim().toLowerCase();
+                const filtered = appsCard.filter(app =>
                     app.title.toLowerCase().includes(term)
                 );
                 setSearchedApps(filtered);
-                setSearchLoading(false);
+                setSearchLoadingapp(false);
             }, 500);
             return () => clearTimeout(timer);
         } else {
-            setSearchedApps(apps);
-            setSearchLoading(false);
+            setSearchedApps(appsCard);
+            setSearchLoadingapp(false);
         }
-    }, [search, apps]);
+    }, [searchapp, appsCard,]);
 
-    if (loading) return <Loading count={28} />;
+    if (loadingCard) return <Loading count={28} />;
 
     return (
         <div>
@@ -51,8 +51,8 @@ const Apps = () => {
                         </g>
                     </svg>
                     <input 
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)} 
+                        value={searchapp}
+                        onChange={(e) => setSearchapp(e.target.value)} 
                         type="search" 
                         required 
                         placeholder="Search" 
@@ -60,7 +60,7 @@ const Apps = () => {
                 </label>
             </div>
 
-            {searchLoading ? (
+            {searchLoadingapp ? (
                 <Loading count={12} />
             ) : searchedApps.length > 0 ? (
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-11/12 mx-auto gap-6 my-16'>
@@ -72,7 +72,7 @@ const Apps = () => {
                 <div className='text-center my-16'>
                     <div className='text-6xl font-bold'>No Apps Found</div>
                     <button
-                        onClick={() => setSearch('')}
+                        onClick={() => setSearchapp('')}
                         className='btn text-white px-8 mt-10 bg-gradient-to-tr from-[#632EE3] to-[#9F62F2]'>
                         Show All
                     </button>

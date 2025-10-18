@@ -14,8 +14,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 
 const Details = () => {
   const { id } = useParams();
-  const { apps } = useHooksData();
-  const app = apps?.find(a => String(a.id) === id);
+  const { appsCard } = useHooksData();
+  const app = appsCard?.find(a => String(a.id) === id);
 
 
   const [installed, setInstalled] = useState(false);
@@ -115,7 +115,7 @@ const Details = () => {
       <div className="my-5 md:my-8 lg:my-10">
         <h3 className="text-2xl md:text-3xl font-bold mb-4">Ratings</h3>
         <div className="bg-base-100 border rounded-xl p-3 md:p-4 lg:p-6 h-80">
-          <ResponsiveContainer width="100%" height="100% ">
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={ratings} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" />
              

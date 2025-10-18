@@ -2,19 +2,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useHooksData = () => {
-  const [apps, setApps] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [appsCard, setAppsCard] = useState([]);
+  const [loadingCard, setLoadingCard] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    setLoadingCard(true);
     axios('/Data.json')
-      .then(res => setApps(res.data))
+      .then(res => setAppsCard(res.data))
       .catch(err => setError(err))
-      .finally(() => setLoading(false));
+      .finally(() => setLoadingCard(false));
   }, []);
 
-  return { apps, loading, error };
+  return { appsCard, loadingCard, error };
 };
 
 export default useHooksData;

@@ -9,9 +9,9 @@ import Card from '../Components/Card';
 import Loading from '../Components/Loading';
 
 const Home = () => {
-  const { apps, loading } = useHooksData();
+  const { appsCard,loadingCard  } = useHooksData();
 
-  const featuredApps = apps.slice(0, 8);
+  const featuredApps = appsCard.slice(0, 8);
 
   return (
     <div>
@@ -75,7 +75,7 @@ const Home = () => {
           <p className="text-gray-500 text-xl mt-5">Explore All Trending Apps on the Market developed by us</p>
         </div>
 
-        {loading ? (
+        {loadingCard ? (
           <Loading count={8} />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-11/12 mx-auto gap-6 my-6 md:my-10 lg:my-16">
