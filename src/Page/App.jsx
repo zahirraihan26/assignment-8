@@ -8,10 +8,10 @@ const Apps = () => {
     const { appsCard, loadingCard } = useHooksData();
     const [searchapp, setSearchapp] = useState('');
     const [searchLoadingapp, setSearchLoadingapp] = useState(false);
-    const [searchedApps, setSearchedApps] = useState([]);
+    const [searchedAppsCord, setSearchedAppsCard] = useState([]);
 
     useEffect(() => {
-        setSearchedApps(appsCard);
+        setSearchedAppsCard(appsCard);
     }, [appsCard]);
 
     useEffect(() => {
@@ -22,12 +22,12 @@ const Apps = () => {
                 const filtered = appsCard.filter(app =>
                     app.title.toLowerCase().includes(term)
                 );
-                setSearchedApps(filtered);
+                setSearchedAppsCard(filtered);
                 setSearchLoadingapp(false);
             }, 500);
             return () => clearTimeout(timer);
         } else {
-            setSearchedApps(appsCard);
+            setSearchedAppsCard(appsCard);
             setSearchLoadingapp(false);
         }
     }, [searchapp, appsCard,]);
@@ -37,12 +37,12 @@ const Apps = () => {
     return (
         <div>
             <div className='text-center my-8 md:my-12 lg:my-16'>
-                <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold'>Our All Applications</h1>
+                <h1 className='text-2xl md:text-5xl lg:text-6xl font-bold'>Our All Applications</h1>
                 <p className='text-gray-400 font-medium mt-5'>Explore All Apps on the Market developed by us. We code for Millions</p>
             </div>
 
             <div className='flex justify-between items-center w-11/12 mx-auto'>
-                <h2 className='text-2xl font-semibold'>({searchedApps.length}) Apps Found</h2>
+                <h2 className='text-2xl font-semibold'>({searchedAppsCord.length}) Apps Found</h2>
                 <label className="input">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">
@@ -62,9 +62,9 @@ const Apps = () => {
 
             {searchLoadingapp ? (
                 <Loading count={12} />
-            ) : searchedApps.length > 0 ? (
+            ) : searchedAppsCord.length > 0 ? (
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-11/12 mx-auto gap-6 my-16'>
-                    {searchedApps.map((app) => (
+                    {searchedAppsCord.map((app) => (
                         <Card key={app.id} app={app} />
                     ))}
                 </div>

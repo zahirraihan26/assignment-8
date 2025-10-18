@@ -115,20 +115,28 @@ const Details = () => {
       <div className="my-5 md:my-8 lg:my-10">
         <h3 className="text-2xl md:text-3xl font-bold mb-4">Ratings</h3>
         <div className="bg-base-100 border rounded-xl p-3 md:p-4 lg:p-6 h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={ratings} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-             
-              <XAxis dataKey="name" />
+          <ResponsiveContainer width="100%" height={300}>
+  {/* ১. layout="vertical" যোগ করুন */}
+  <BarChart 
+    layout="vertical" 
+    data={ratings} 
+    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+  >
+    <CartesianGrid strokeDasharray="3 3" />
+    
+  
+    <XAxis type="number" /> 
 
-
-               <YAxis />
-             
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="count" fill="#632EE3" radius={[20, 20, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+  
+    <YAxis type="category" dataKey="name" />
+    
+    <Tooltip />
+    <Legend />
+    
+    
+    <Bar dataKey="count" fill="#632EE3" radius={[0, 5, 5, 0]} />
+  </BarChart>
+</ResponsiveContainer>
         </div>
       </div>
 
