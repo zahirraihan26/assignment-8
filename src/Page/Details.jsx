@@ -6,8 +6,9 @@ import downloadImg from '../assets/icon-downloads.png';
 import ratengsImg from '../assets/icon-ratings.png';
 import reviewImg from '../assets/icon-review.png';
 import errorImg from '../assets/App-Error.png';
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 const Details = () => {
@@ -39,7 +40,7 @@ const Details = () => {
     }
 
 
-    const { title, image, ratingAvg, downloads, reviews, companyName, size } = app;
+    const { title, image, ratingAvg, downloads, reviews, companyName, size, description, ratings } = app;
 
 
     const handleAddToInstallation = () => {
@@ -109,7 +110,36 @@ const Details = () => {
             <div className="border border-gray-300 my-8"></div>
 
 
-            
+            {/* Ratings Chart */}
+            <div className="my-5 md:my-8 lg:my-10">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Ratings</h3>
+                <div className="bg-base-100 border rounded-xl p-3 md:p-4 lg:p-6 h-80">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={ratings} margin={{ bottom: 5, top: 5, right: 30, left: 20  }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+
+                            <XAxis dataKey="name" />
+
+
+                            <YAxis />
+
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="count" fill="#632EE3" radius={[20, 20, 0, 0]} />
+                        </BarChart>
+                    </ResponsiveContainer>
+                </div>
+            </div>
+
+
+            {/* Description */}
+            <div>
+                <div className="text-2xl md:text-3xl font-bold">Description</div>
+                <div className="text-gray-600 mt-2 md:mt-3 lg:mt-5">{description}</div>
+            </div>
+
+
+            <ToastContainer />
         </div>
     );
 };
