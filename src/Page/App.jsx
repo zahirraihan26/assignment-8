@@ -60,7 +60,13 @@ const Apps = () => {
                 </label>
             </div>
 
-           
+            {searchLoading ? (
+                <Loading count={12} />
+            ) : searchedApps.length > 0 ? (
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-11/12 mx-auto gap-6 my-16'>
+                    {searchedApps.map((app) => (
+                        <Card key={app.id} app={app} />
+                    ))}
                 </div>
             ) : (
                 <div className='text-center my-16'>
