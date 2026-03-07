@@ -1,47 +1,73 @@
-
-import { Github } from 'lucide-react';
+import { Github, Menu } from 'lucide-react';
 import React from 'react';
 import { Link, NavLink } from 'react-router';
-import logo from '../assets/logo.png';
+// We'll use a dynamic text logo instead of image to match the AI aesthetic
+// import logo from '../assets/logo.png';
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm lg:px-18">
-
-
-      <div className="navbar-start">
-
-        <div className="dropdown">
-
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div className="sticky top-0 z-50 glass-panel border-x-0 border-t-0 bg-[rgba(15,17,26,0.7)] px-4 lg:px-18 py-2">
+      <div className="navbar max-w-7xl mx-auto">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-gray-300 hover:text-white">
+              <Menu size={24} />
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content glass-panel rounded-box z-[1] mt-3 w-52 p-2 shadow-2xl border border-[rgba(255,255,255,0.1)]"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#06b6d4] bg-[rgba(6,182,212,0.1)] rounded-lg p-2 font-medium mb-1'
+                    : 'text-gray-300 hover:text-white hover:bg-[rgba(255,255,255,0.05)] rounded-lg p-2 mb-1'
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/apps"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#06b6d4] bg-[rgba(6,182,212,0.1)] rounded-lg p-2 font-medium mb-1'
+                    : 'text-gray-300 hover:text-white hover:bg-[rgba(255,255,255,0.05)] rounded-lg p-2 mb-1'
+                }
+              >
+                Models
+              </NavLink>
+              <NavLink
+                to="/installation"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#06b6d4] bg-[rgba(6,182,212,0.1)] rounded-lg p-2 font-medium mb-1'
+                    : 'text-gray-300 hover:text-white hover:bg-[rgba(255,255,255,0.05)] rounded-lg p-2 mb-1'
+                }
+              >
+                Installation
+              </NavLink>
+            </ul>
           </div>
 
+          <Link className="flex items-center gap-2 lg:ml-0 ml-2" to="/">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#06b6d4] to-[#8b5cf6] flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(139,92,246,0.5)]">
+              H
+            </div>
+            <span className="font-extrabold text-xl tracking-tight text-white">
+              HERO<span className="text-[#06b6d4]">.AI</span>
+            </span>
+          </Link>
+        </div>
 
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
-          >
-
+        <div className="navbar-center hidden lg:flex">
+          <ul className="flex items-center gap-8 font-medium text-sm tracking-wide">
             <NavLink
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? 'text-[#632EE3] border-b-2 border-[#632EE3] mb-1'
-                  : 'text-gray-700 mb-1'
+                  ? 'text-white relative after:content-[""] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#06b6d4] after:rounded-full after:shadow-[0_0_10px_#06b6d4]'
+                  : 'text-gray-400 hover:text-white transition-colors'
               }
             >
               Home
@@ -50,18 +76,18 @@ const Navbar = () => {
               to="/apps"
               className={({ isActive }) =>
                 isActive
-                  ? 'text-[#632EE3] border-b-2 border-[#632EE3] mb-1'
-                  : 'text-gray-700 mb-1'
+                  ? 'text-white relative after:content-[""] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#06b6d4] after:rounded-full after:shadow-[0_0_10px_#06b6d4]'
+                  : 'text-gray-400 hover:text-white transition-colors'
               }
             >
-              Apps
+              Models
             </NavLink>
             <NavLink
               to="/installation"
               className={({ isActive }) =>
                 isActive
-                  ? 'text-[#632EE3] border-b-2 border-[#632EE3] mb-1'
-                  : 'text-gray-700 mb-1'
+                  ? 'text-white relative after:content-[""] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#06b6d4] after:rounded-full after:shadow-[0_0_10px_#06b6d4]'
+                  : 'text-gray-400 hover:text-white transition-colors'
               }
             >
               Installation
@@ -69,62 +95,18 @@ const Navbar = () => {
           </ul>
         </div>
 
-
-        <Link className="flex items-center gap-2" to="/">
-          <img className="w-10 h-10" src={logo} alt="Logo" />
-          <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#632EE3] to-[#9F62F2]">
-            HERO.IO
-          </span>
-        </Link>
-      </div>
-
-
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-10 font-medium text-lg">
-
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? 'text-[#632EE3] border-b-2 border-[#632EE3]'
-                : 'text-gray-700'
-            }
+        <div className="navbar-end gap-4">
+          <Link
+            target="_blank"
+            to="https://github.com/zahirraihan26"
+            className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.1)] text-white transition-all shadow-sm"
           >
-            Home
-          </NavLink>
-          <NavLink
-            to="/apps"
-            className={({ isActive }) =>
-              isActive
-                ? 'text-[#632EE3] border-b-2 border-[#632EE3]'
-                : 'text-gray-700'
-            }
-          >
-            Apps
-          </NavLink>
-          <NavLink
-            to="/installation"
-            className={({ isActive }) =>
-              isActive
-                ? 'text-[#632EE3] border-b-2 border-[#632EE3]'
-                : 'text-gray-700'
-            }
-          >
-            Installation
-          </NavLink>
-        </ul>
-      </div>
-
-      <div className="navbar-end">
-
-        <Link
-         target='b'
-          to="https://github.com/zahirraihan26"
-          className="btn bg-gradient-to-tr from-[#632EE3] to-[#9F62F2]"
-        >
-          <Github  className="bg-white rounded-full mr-2" />
-          <span className="text-white font-medium">Contribute</span>
-        </Link>
+            <Github size={18} />
+          </Link>
+          <button className="btn btn-ai rounded-xl px-6 font-medium text-sm h-10 min-h-0 border-0">
+            Get Started
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -7,3 +7,7 @@ DaisyUI
 React Toastify
 React Helmet
 React Icons 
+
+
+Live link: glowing-toffee-aa73a5.netlify.app
+

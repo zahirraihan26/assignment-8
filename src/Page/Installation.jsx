@@ -1,11 +1,8 @@
 
 
 
-
-
 import React, { useEffect, useState } from 'react';
-import downloadImg from '../assets/icon-downloads.png';
-import ratingsImg from '../assets/icon-ratings.png';
+import { Download, Star, Database, Trash2, Cpu } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,85 +32,112 @@ const Installation = () => {
 
     localStorage.setItem('Installed', JSON.stringify(updatList));
     setInstallation(updatList);
-    toast.success(`${removedApp?.title} Uninstall Successfully! ✅`);
+    toast.error(`${removedApp?.title} removed from workspace.`, {
+      theme: 'dark',
+      style: { background: 'rgba(15,17,26,0.9)', border: '1px solid rgba(239,68,68,0.3)', color: '#fff' }
+    });
   };
 
   return (
-    <div className="w-11/12 my-10 md:my-15 lg:my-20 mx-auto">
-      <div>
-        <div className="text-center my-5 md:my-7 lg:my-9">
-          <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl">
-            Your Installed Apps
+    <div className="w-11/12 max-w-7xl mx-auto my-12 md:my-16 lg:my-24 min-h-[60vh]">
+      <div className="flex flex-col md:flex-row justify-between items-end border-b border-[rgba(255,255,255,0.05)] pb-8 mb-10">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(6,182,212,0.1)] border border-[rgba(6,182,212,0.2)] mb-4">
+            <Database size={14} className="text-[#06b6d4]" />
+            <span className="text-sm font-medium text-[#06b6d4]">Local Workspace</span>
+          </div>
+          <h1 className="font-extrabold text-4xl md:text-5xl text-white mb-3">
+            Deployed Models
           </h1>
-          <p className="text-gray-400 mt-3 text-xl">
-            Explore all trending apps installed by you
+          <p className="text-gray-400 text-lg">
+            Manage your active AI models and infrastructure.
           </p>
         </div>
 
-        <div className="flex justify-between items-center">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">
-            ({installation.length}) Apps Found
-          </h2>
+        <div className="mt-6 md:mt-0 flex items-center gap-4">
+          <div className="glass-panel px-4 py-2 rounded-xl text-gray-300 font-medium border border-[rgba(255,255,255,0.05)]">
+            <span className="text-[#8b5cf6] font-bold">{installation.length}</span> Active
+          </div>
 
-          <label className="bg-gray-500 text-white rounded-2xl p-1 md:p-3">
+          <div className="glass-panel rounded-xl border border-[rgba(255,255,255,0.05)] relative">
             <select
-              className="bg-gray-500 text-white outline-none"
+              className="appearance-none bg-transparent text-white font-medium pl-4 pr-10 py-2 outline-none cursor-pointer"
               value={sortOrderValue}
               onChange={(e) => setSortOrderValue(e.target.value)}
             >
-              <option value="none">Sort By Downloads</option>
-              <option value="downloads-asc">Low → High</option>
-              <option value="downloads-desc">High → Low</option>
+              <option value="none" className="bg-[#0f111a] text-white">Default Sort</option>
+              <option value="downloads-asc" className="bg-[#0f111a] text-white">Deployments: Low → High</option>
+              <option value="downloads-desc" className="bg-[#0f111a] text-white">Deployments: High → Low</option>
             </select>
-          </label>
+            <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-gray-400">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="my-5">
+      <div className="flex flex-col gap-6">
         {sortedItems.length > 0 ? (
           sortedItems.map((a) => (
             <div
               key={a.id}
-              className="bg-base-100 my-5 md:my-8 lg:my-10 shadow-sm border rounded-2xl border-gray-200 p-2 md:p-6 lg:p-8 md:flex justify-between items-center"
+              className="glass-panel group rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col md:flex-row justify-between items-center transition-all hover:border-[rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.1)] border border-[rgba(255,255,255,0.05)] relative overflow-hidden"
             >
-              <div className="flex gap-4 md:gap-6 lg:gap-8 items-center">
-                <div>
-                  <img className="w-[200px] rounded-2xl" src={a.image} alt="" />
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#8b5cf6] to-[#06b6d4] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+              <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 items-center md:items-start w-full md:w-auto">
+                <div className="w-full sm:w-48 aspect-video rounded-xl overflow-hidden bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] flex-shrink-0 relative">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#8b5cf6] to-[#06b6d4] opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10"></div>
+                  <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={a.image} alt={a.title} />
                 </div>
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4 md:mb-6 lg:mb-8">
+
+                <div className="text-center sm:text-left flex-1 min-w-0">
+                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.05)] mb-3">
+                    <Cpu size={12} className="text-gray-400" />
+                    <span className="text-xs font-medium text-gray-400">Running</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 truncate">
                     {a.title}
                   </h3>
-                  <div className="flex gap-5 items-center">
-                    <div className="flex gap-2 text-xl font-semibold items-center">
-                      <img className="h-6" src={downloadImg} alt="" />
-                      <span className="text-[#00D390]">{a.downloads}M</span>
+
+                  <div className="flex flex-wrap justify-center sm:justify-start gap-4 text-sm">
+                    <div className="flex gap-2 items-center bg-[rgba(6,182,212,0.1)] px-3 py-1.5 rounded-lg border border-[rgba(6,182,212,0.2)]">
+                      <Download size={14} className="text-[#06b6d4]" />
+                      <span className="text-white font-medium">{a.downloads}M</span>
                     </div>
-                    <div className="flex gap-2 text-xl font-semibold items-center">
-                      <img className="h-6" src={ratingsImg} alt="" />
-                      <span className="text-orange-400">{a.ratingAvg}</span>
+                    <div className="flex gap-2 items-center bg-[rgba(245,158,11,0.1)] px-3 py-1.5 rounded-lg border border-[rgba(245,158,11,0.2)]">
+                      <Star size={14} className="text-[#f59e0b]" />
+                      <span className="text-white font-medium">{a.ratingAvg}</span>
                     </div>
-                    <div className="flex gap-2 text-xl font-semibold">
-                      <span>{a.reviews}MB</span>
+                    <div className="flex gap-2 items-center bg-[rgba(255,255,255,0.05)] px-3 py-1.5 rounded-lg border border-[rgba(255,255,255,0.1)]">
+                      <Database size={14} className="text-gray-400" />
+                      <span className="text-gray-300 font-medium">{a.size}MB</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex mt-3 md:mt-0 items-center justify-center">
+              <div className="mt-6 md:mt-0 flex items-center justify-end w-full md:w-auto">
                 <button
                   onClick={() => handleRemove(a.id)}
-                  className="bg-[#00d390] hover:bg-[#00b87d] text-white px-5 md:px-7 lg:px-10 py-2 md:py-3 rounded-xl transition-all"
+                  className="flex items-center gap-2 bg-[rgba(239,68,68,0.1)] hover:bg-[rgba(239,68,68,0.2)] hover:shadow-[0_0_15px_rgba(239,68,68,0.3)] text-red-500 border border-[rgba(239,68,68,0.2)] px-6 py-3 rounded-xl transition-all w-full md:w-auto justify-center font-medium"
                 >
-                  Uninstall
+                  <Trash2 size={18} />
+                  <span>Uninstall</span>
                 </button>
               </div>
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-500 text-xl mt-10">
-            No apps installed yet.
-          </p>
+          <div className="glass-panel rounded-3xl p-16 flex flex-col items-center justify-center text-center border border-[rgba(255,255,255,0.05)]">
+            <div className="w-20 h-20 rounded-full bg-[rgba(255,255,255,0.05)] flex items-center justify-center mb-6 border border-[rgba(255,255,255,0.05)]">
+              <Database size={32} className="text-gray-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">No Models Deployed</h3>
+            <p className="text-gray-400 max-w-md mx-auto">
+              Your workspace is currently empty. Explore the directory and deploy state-of-the-art models to get started.
+            </p>
+          </div>
         )}
       </div>
 
@@ -123,4 +147,3 @@ const Installation = () => {
 };
 
 export default Installation;
-

@@ -1,2 +1,95 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+  --color-ai-dark: #0f111a;
+  --color-ai-darker: #090a0f;
+  --color-ai-purple: #8b5cf6;
+  --color-ai-cyan: #06b6d4;
+  --color-ai-glass: rgba(255, 255, 255, 0.05);
+  --color-ai-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background-color: var(--color-ai-dark);
+  color: #fff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.glass-panel {
+  background: var(--color-ai-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-ai-glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-ai-cyan), var(--color-ai-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+  background-color: var(--color-ai-darker);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow for buttons */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.7); }
+}
+
+.btn-ai {
+  background: linear-gradient(135deg, var(--color-ai-purple), var(--color-ai-cyan)) !important;
+  color: white !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+.btn-ai:hover {
+  transform: translateY(-2px);
+  animation: pulse-glow 2s infinite;
+}
