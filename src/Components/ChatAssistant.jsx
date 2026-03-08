@@ -38,7 +38,7 @@ const ChatAssistant = () => {
             }));
 
             const response = await fetch(
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyA3S-jQ2gbOJ3dKLwVF5G4JnuaGH4BZXE8`,
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
                 {
                     method: 'POST',
                     headers: {
