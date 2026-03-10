@@ -9,28 +9,28 @@ const Apps = () => {
     const [searchapp, setSearchapp] = useState('');
     const [searchLoadingapp, setSearchLoadingapp] = useState(false);
     const [searchedAppsCord, setSearchedAppsCard] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('All');
+
+    const categories = ['All', 'Text Generation', 'Image/Vision', 'Audio', 'Code'];
 
     useEffect(() => {
         setSearchedAppsCard(appsCard);
     }, [appsCard]);
 
     useEffect(() => {
-        if (searchapp.trim()) {
-            setSearchLoadingapp(true);
-            const timer = setTimeout(() => {
-                const term = searchapp.trim().toLowerCase();
-                const filtered = appsCard.filter(app =>
-                    app.title.toLowerCase().includes(term)
-                );
-                setSearchedAppsCard(filtered);
-                setSearchLoadingapp(false);
-            }, 500);
-            return () => clearTimeout(timer);
-        } else {
-            setSearchedAppsCard(appsCard);
+        setSearchLoadingapp(true);
+        const timer = setTimeout(() => {
+            const term = searchapp.trim().toLowerCase();
+            const filtered = appsCard.filter(app => {
+                const matchesSearch = app.title.toLowerCase().includes(term);
+                const matchesCategory = selectedCategory === 'All' || app.category === selectedCategory;
+                return matchesSearch && matchesCategory;
+            });
+            setSearchedAppsCard(filtered);
             setSearchLoadingapp(false);
-        }
-    }, [searchapp, appsCard]);
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [searchapp, appsCard, selectedCategory]);
 
     if (loadingCard) return <div className="flex justify-center mt-20"><Loading count={28} /></div>;
 
@@ -50,6 +50,22 @@ const Apps = () => {
                 <p className='text-gray-400 text-lg md:text-xl max-w-2xl mx-auto'>
                     Discover, deploy, and scale with our comprehensive library of state-of-the-art AI models built for every use case.
                 </p>
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10 px-4">
+                {categories.map((cat) => (
+                    <button
+                        key={cat}
+                        onClick={() => setSelectedCategory(cat)}
+                        className={`px-6 py-2 rounded-full font-medium transition-all ${selectedCategory === cat
+                                ? 'bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6] text-white shadow-[0_0_15px_rgba(6,182,212,0.4)] border-transparent'
+                                : 'glass-panel bg-[rgba(255,255,255,0.05)] text-gray-300 border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.1)]'
+                            }`}
+                    >
+                        {cat}
+                    </button>
+                ))}
             </div>
 
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 mb-12'>

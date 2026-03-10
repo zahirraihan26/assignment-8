@@ -50,7 +50,7 @@ const Installation = () => {
             Deployed Models
           </h1>
           <p className="text-gray-400 text-lg">
-            Manage your active AI models and infrastructure.
+            Manage your active  models and infrastructure.
           </p>
         </div>
 

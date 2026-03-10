@@ -1,4 +1,6 @@
-[
+import json
+
+data = [
   {
     "image": "https://i.ibb.co/nqD74xv8/alexander-shatov-qsu-ER9x-YOY-unsplash-1.jpg",
     "title": "WhatsApp Messenger",
@@ -10,26 +12,11 @@
     "ratingAvg": 4.5,
     "downloads": 5000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 3000000
-      },
-      {
-        "name": "2 star",
-        "count": 5000000
-      },
-      {
-        "name": "3 star",
-        "count": 15000000
-      },
-      {
-        "name": "4 star",
-        "count": 25000000
-      },
-      {
-        "name": "5 star",
-        "count": 75000000
-      }
+      {"name": "1 star", "count": 3000000},
+      {"name": "2 star", "count": 5000000},
+      {"name": "3 star", "count": 15000000},
+      {"name": "4 star", "count": 25000000},
+      {"name": "5 star", "count": 75000000}
     ],
     "category": "Text Generation"
   },
@@ -44,26 +31,11 @@
     "ratingAvg": 4.4,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 2500000
-      },
-      {
-        "name": "2 star",
-        "count": 4000000
-      },
-      {
-        "name": "3 star",
-        "count": 12000000
-      },
-      {
-        "name": "4 star",
-        "count": 22000000
-      },
-      {
-        "name": "5 star",
-        "count": 61000000
-      }
+      {"name": "1 star", "count": 2500000},
+      {"name": "2 star", "count": 4000000},
+      {"name": "3 star", "count": 12000000},
+      {"name": "4 star", "count": 22000000},
+      {"name": "5 star", "count": 61000000}
     ],
     "category": "Image/Vision"
   },
@@ -78,26 +50,11 @@
     "ratingAvg": 4.3,
     "downloads": 5000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 4000000
-      },
-      {
-        "name": "2 star",
-        "count": 6000000
-      },
-      {
-        "name": "3 star",
-        "count": 18000000
-      },
-      {
-        "name": "4 star",
-        "count": 30000000
-      },
-      {
-        "name": "5 star",
-        "count": 92000000
-      }
+      {"name": "1 star", "count": 4000000},
+      {"name": "2 star", "count": 6000000},
+      {"name": "3 star", "count": 18000000},
+      {"name": "4 star", "count": 30000000},
+      {"name": "5 star", "count": 92000000}
     ],
     "category": "Audio"
   },
@@ -112,26 +69,11 @@
     "ratingAvg": 4.1,
     "downloads": 5000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 8000000
-      },
-      {
-        "name": "2 star",
-        "count": 10000000
-      },
-      {
-        "name": "3 star",
-        "count": 22000000
-      },
-      {
-        "name": "4 star",
-        "count": 32000000
-      },
-      {
-        "name": "5 star",
-        "count": 108000000
-      }
+      {"name": "1 star", "count": 8000000},
+      {"name": "2 star", "count": 10000000},
+      {"name": "3 star", "count": 22000000},
+      {"name": "4 star", "count": 32000000},
+      {"name": "5 star", "count": 108000000}
     ],
     "category": "Code"
   },
@@ -146,26 +88,11 @@
     "ratingAvg": 4.6,
     "downloads": 10000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 2000000
-      },
-      {
-        "name": "2 star",
-        "count": 4000000
-      },
-      {
-        "name": "3 star",
-        "count": 10000000
-      },
-      {
-        "name": "4 star",
-        "count": 25000000
-      },
-      {
-        "name": "5 star",
-        "count": 159000000
-      }
+      {"name": "1 star", "count": 2000000},
+      {"name": "2 star", "count": 4000000},
+      {"name": "3 star", "count": 10000000},
+      {"name": "4 star", "count": 25000000},
+      {"name": "5 star", "count": 159000000}
     ],
     "category": "Text Generation"
   },
@@ -180,26 +107,11 @@
     "ratingAvg": 4.7,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 800000
-      },
-      {
-        "name": "2 star",
-        "count": 1000000
-      },
-      {
-        "name": "3 star",
-        "count": 4000000
-      },
-      {
-        "name": "4 star",
-        "count": 8000000
-      },
-      {
-        "name": "5 star",
-        "count": 21000000
-      }
+      {"name": "1 star", "count": 800000},
+      {"name": "2 star", "count": 1000000},
+      {"name": "3 star", "count": 4000000},
+      {"name": "4 star", "count": 8000000},
+      {"name": "5 star", "count": 21000000}
     ],
     "category": "Image/Vision"
   },
@@ -214,26 +126,11 @@
     "ratingAvg": 4.5,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 1500000
-      },
-      {
-        "name": "2 star",
-        "count": 2500000
-      },
-      {
-        "name": "3 star",
-        "count": 8000000
-      },
-      {
-        "name": "4 star",
-        "count": 16000000
-      },
-      {
-        "name": "5 star",
-        "count": 62000000
-      }
+      {"name": "1 star", "count": 1500000},
+      {"name": "2 star", "count": 2500000},
+      {"name": "3 star", "count": 8000000},
+      {"name": "4 star", "count": 16000000},
+      {"name": "5 star", "count": 62000000}
     ],
     "category": "Audio"
   },
@@ -248,26 +145,11 @@
     "ratingAvg": 4.6,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 1000000
-      },
-      {
-        "name": "2 star",
-        "count": 2000000
-      },
-      {
-        "name": "3 star",
-        "count": 6000000
-      },
-      {
-        "name": "4 star",
-        "count": 12000000
-      },
-      {
-        "name": "5 star",
-        "count": 48000000
-      }
+      {"name": "1 star", "count": 1000000},
+      {"name": "2 star", "count": 2000000},
+      {"name": "3 star", "count": 6000000},
+      {"name": "4 star", "count": 12000000},
+      {"name": "5 star", "count": 48000000}
     ],
     "category": "Code"
   },
@@ -282,26 +164,11 @@
     "ratingAvg": 4.3,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 4000000
-      },
-      {
-        "name": "2 star",
-        "count": 6000000
-      },
-      {
-        "name": "3 star",
-        "count": 15000000
-      },
-      {
-        "name": "4 star",
-        "count": 25000000
-      },
-      {
-        "name": "5 star",
-        "count": 45000000
-      }
+      {"name": "1 star", "count": 4000000},
+      {"name": "2 star", "count": 6000000},
+      {"name": "3 star", "count": 15000000},
+      {"name": "4 star", "count": 25000000},
+      {"name": "5 star", "count": 45000000}
     ],
     "category": "Text Generation"
   },
@@ -316,26 +183,11 @@
     "ratingAvg": 4.4,
     "downloads": 2000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 2000000
-      },
-      {
-        "name": "2 star",
-        "count": 4000000
-      },
-      {
-        "name": "3 star",
-        "count": 10000000
-      },
-      {
-        "name": "4 star",
-        "count": 16000000
-      },
-      {
-        "name": "5 star",
-        "count": 48000000
-      }
+      {"name": "1 star", "count": 2000000},
+      {"name": "2 star", "count": 4000000},
+      {"name": "3 star", "count": 10000000},
+      {"name": "4 star", "count": 16000000},
+      {"name": "5 star", "count": 48000000}
     ],
     "category": "Image/Vision"
   },
@@ -350,26 +202,11 @@
     "ratingAvg": 4.7,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 400000
-      },
-      {
-        "name": "2 star",
-        "count": 700000
-      },
-      {
-        "name": "3 star",
-        "count": 1500000
-      },
-      {
-        "name": "4 star",
-        "count": 5000000
-      },
-      {
-        "name": "5 star",
-        "count": 18000000
-      }
+      {"name": "1 star", "count": 400000},
+      {"name": "2 star", "count": 700000},
+      {"name": "3 star", "count": 1500000},
+      {"name": "4 star", "count": 5000000},
+      {"name": "5 star", "count": 18000000}
     ],
     "category": "Audio"
   },
@@ -384,26 +221,11 @@
     "ratingAvg": 4.2,
     "downloads": 50000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 400000
-      },
-      {
-        "name": "2 star",
-        "count": 800000
-      },
-      {
-        "name": "3 star",
-        "count": 2000000
-      },
-      {
-        "name": "4 star",
-        "count": 4000000
-      },
-      {
-        "name": "5 star",
-        "count": 6400000
-      }
+      {"name": "1 star", "count": 400000},
+      {"name": "2 star", "count": 800000},
+      {"name": "3 star", "count": 2000000},
+      {"name": "4 star", "count": 4000000},
+      {"name": "5 star", "count": 6400000}
     ],
     "category": "Code"
   },
@@ -418,26 +240,11 @@
     "ratingAvg": 4.6,
     "downloads": 5000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 2000000
-      },
-      {
-        "name": "2 star",
-        "count": 3000000
-      },
-      {
-        "name": "3 star",
-        "count": 8000000
-      },
-      {
-        "name": "4 star",
-        "count": 16000000
-      },
-      {
-        "name": "5 star",
-        "count": 51000000
-      }
+      {"name": "1 star", "count": 2000000},
+      {"name": "2 star", "count": 3000000},
+      {"name": "3 star", "count": 8000000},
+      {"name": "4 star", "count": 16000000},
+      {"name": "5 star", "count": 51000000}
     ],
     "category": "Text Generation"
   },
@@ -446,32 +253,17 @@
     "title": "Google Keep",
     "companyName": "Google LLC",
     "id": 14,
-    "description": "Take quick notes, make lists, and set reminders \u2014 all synced across devices.",
+    "description": "Take quick notes, make lists, and set reminders — all synced across devices.",
     "size": 70,
     "reviews": 35000000,
     "ratingAvg": 4.5,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 700000
-      },
-      {
-        "name": "2 star",
-        "count": 1000000
-      },
-      {
-        "name": "3 star",
-        "count": 2000000
-      },
-      {
-        "name": "4 star",
-        "count": 7000000
-      },
-      {
-        "name": "5 star",
-        "count": 24000000
-      }
+      {"name": "1 star", "count": 700000},
+      {"name": "2 star", "count": 1000000},
+      {"name": "3 star", "count": 2000000},
+      {"name": "4 star", "count": 7000000},
+      {"name": "5 star", "count": 24000000}
     ],
     "category": "Image/Vision"
   },
@@ -486,26 +278,11 @@
     "ratingAvg": 4.6,
     "downloads": 50000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 300000
-      },
-      {
-        "name": "2 star",
-        "count": 400000
-      },
-      {
-        "name": "3 star",
-        "count": 1200000
-      },
-      {
-        "name": "4 star",
-        "count": 2500000
-      },
-      {
-        "name": "5 star",
-        "count": 5600000
-      }
+      {"name": "1 star", "count": 300000},
+      {"name": "2 star", "count": 400000},
+      {"name": "3 star", "count": 1200000},
+      {"name": "4 star", "count": 2500000},
+      {"name": "5 star", "count": 5600000}
     ],
     "category": "Audio"
   },
@@ -520,26 +297,11 @@
     "ratingAvg": 4.5,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 3000000
-      },
-      {
-        "name": "2 star",
-        "count": 4000000
-      },
-      {
-        "name": "3 star",
-        "count": 9000000
-      },
-      {
-        "name": "4 star",
-        "count": 16000000
-      },
-      {
-        "name": "5 star",
-        "count": 38000000
-      }
+      {"name": "1 star", "count": 3000000},
+      {"name": "2 star", "count": 4000000},
+      {"name": "3 star", "count": 9000000},
+      {"name": "4 star", "count": 16000000},
+      {"name": "5 star", "count": 38000000}
     ],
     "category": "Code"
   },
@@ -548,32 +310,17 @@
     "title": "Notion",
     "companyName": "Notion Labs",
     "id": 17,
-    "description": "A connected workspace for notes, tasks, and wikis \u2014 all in one app.",
+    "description": "A connected workspace for notes, tasks, and wikis — all in one app.",
     "size": 120,
     "reviews": 18000000,
     "ratingAvg": 4.8,
     "downloads": 50000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 100000
-      },
-      {
-        "name": "2 star",
-        "count": 200000
-      },
-      {
-        "name": "3 star",
-        "count": 600000
-      },
-      {
-        "name": "4 star",
-        "count": 3000000
-      },
-      {
-        "name": "5 star",
-        "count": 14000000
-      }
+      {"name": "1 star", "count": 100000},
+      {"name": "2 star", "count": 200000},
+      {"name": "3 star", "count": 600000},
+      {"name": "4 star", "count": 3000000},
+      {"name": "5 star", "count": 14000000}
     ],
     "category": "Text Generation"
   },
@@ -588,26 +335,11 @@
     "ratingAvg": 4.2,
     "downloads": 2000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 5000000
-      },
-      {
-        "name": "2 star",
-        "count": 7000000
-      },
-      {
-        "name": "3 star",
-        "count": 12000000
-      },
-      {
-        "name": "4 star",
-        "count": 25000000
-      },
-      {
-        "name": "5 star",
-        "count": 81000000
-      }
+      {"name": "1 star", "count": 5000000},
+      {"name": "2 star", "count": 7000000},
+      {"name": "3 star", "count": 12000000},
+      {"name": "4 star", "count": 25000000},
+      {"name": "5 star", "count": 81000000}
     ],
     "category": "Image/Vision"
   },
@@ -622,26 +354,11 @@
     "ratingAvg": 4.4,
     "downloads": 5000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 4000000
-      },
-      {
-        "name": "2 star",
-        "count": 6000000
-      },
-      {
-        "name": "3 star",
-        "count": 15000000
-      },
-      {
-        "name": "4 star",
-        "count": 26000000
-      },
-      {
-        "name": "5 star",
-        "count": 129000000
-      }
+      {"name": "1 star", "count": 4000000},
+      {"name": "2 star", "count": 6000000},
+      {"name": "3 star", "count": 15000000},
+      {"name": "4 star", "count": 26000000},
+      {"name": "5 star", "count": 129000000}
     ],
     "category": "Audio"
   },
@@ -656,27 +373,17 @@
     "ratingAvg": 4.3,
     "downloads": 1000000000,
     "ratings": [
-      {
-        "name": "1 star",
-        "count": 2000000
-      },
-      {
-        "name": "2 star",
-        "count": 3000000
-      },
-      {
-        "name": "3 star",
-        "count": 7000000
-      },
-      {
-        "name": "4 star",
-        "count": 14000000
-      },
-      {
-        "name": "5 star",
-        "count": 39000000
-      }
+      {"name": "1 star", "count": 2000000},
+      {"name": "2 star", "count": 3000000},
+      {"name": "3 star", "count": 7000000},
+      {"name": "4 star", "count": 14000000},
+      {"name": "5 star", "count": 39000000}
     ],
     "category": "Code"
   }
 ]
+
+with open(r"c:\projects\assignament-1-to 9\assignment-8-react\public\Data.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, indent=2)
+
+print("Created Data.json successfully with placeholder URLs.")
