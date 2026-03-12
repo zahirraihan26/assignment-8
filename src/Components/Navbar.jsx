@@ -1,10 +1,19 @@
 import { Github, Menu } from 'lucide-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 // We'll use a dynamic text logo instead of image to match the AI aesthetic
 // import logo from '../assets/logo.png';
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch(err => console.error(err));
+  };
+
   return (
     <div className="sticky top-0 z-50 glass-panel border-x-0 border-t-0 bg-[rgba(15,17,26,0.7)] px-4 lg:px-18 py-2">
       <div className="navbar max-w-7xl mx-auto">
@@ -103,9 +112,22 @@ const Navbar = () => {
           >
             <Github size={18} />
           </Link>
-          <button className="btn btn-ai rounded-xl px-6 font-medium text-sm h-10 min-h-0 border-0">
-            Get Started
-          </button>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom tooltip-primary" data-tip={user?.displayName || "User"}>
+                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img alt="User Avatar" src={user?.photoURL || "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"} />
+                </div>
+              </div>
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border border-base-300">
+                <li><button className="text-error" onClick={handleLogout}>Logout</button></li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login" className="btn btn-ai rounded-xl px-6 font-medium text-sm h-10 min-h-0 border-0">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

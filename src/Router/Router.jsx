@@ -5,6 +5,8 @@ import Apps from "../Page/App";
 import Installation from "../Page/Installation";
 import AppsDetails from "../Page/Details";
 import Error from "../Page/Error";
+import Login from "../Page/Login";
+import Register from "../Page/Register";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/app/:id",
         Component: AppsDetails,
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
       },
     ],
   },
