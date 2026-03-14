@@ -15,6 +15,7 @@ const ChatAssistant = () => {
     });
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const [copiedIndex, setCopiedIndex] = useState(null);
     const [isListening, setIsListening] = useState(false);
     const messagesEndRef = useRef(null);
@@ -72,6 +73,7 @@ const ChatAssistant = () => {
         setMessages((prev) => [...prev, { role: 'user', text: userMsg }]);
         setInput('');
         setIsLoading(true);
+        setError(null);
 
         try {
             const apiMessages = [
@@ -83,7 +85,7 @@ const ChatAssistant = () => {
             }));
 
             const response = await fetch(
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY || ''}`,
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY || ''}`,
                 {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -97,6 +99,12 @@ const ChatAssistant = () => {
             );
 
             const data = await response.json();
+            console.log('Gemini API Response Status:', response.status);
+            console.log('Gemini API Response Data:', data);
+
+            if (!response.ok) {
+                throw new Error(data.error?.message || `API Error: ${response.status}`);
+            }
 
             if (data.candidates && data.candidates[0].content.parts[0].text) {
                 const aiText = data.candidates[0].content.parts[0].text;
@@ -115,7 +123,9 @@ const ChatAssistant = () => {
                 setMessages((prev) => [...prev, { role: 'assistant', text: 'Sorry, I encountered an error processing that request.' }]);
             }
         } catch (error) {
-            setMessages((prev) => [...prev, { role: 'assistant', text: 'Error connecting to the AI agent.' }]);
+            console.error('Chat Error:', error);
+            setError(error.message);
+            setMessages((prev) => [...prev, { role: 'assistant', text: 'Error connecting to the AI agent. Please check the console for details.' }]);
         } finally {
             setIsLoading(false);
         }
@@ -222,6 +232,13 @@ const ChatAssistant = () => {
                                     <span className="w-1.5 h-1.5 rounded-full bg-[#06b6d4] animate-bounce"></span>
                                     <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-bounce" style={{ animationDelay: '0.2s' }}></span>
                                     <span className="w-1.5 h-1.5 rounded-full bg-[#06b6d4] animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+                                </div>
+                            </div>
+                        )}
+                        {error && (
+                            <div className="flex justify-center">
+                                <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-xs py-2 px-4 rounded-lg">
+                                    {error}
                                 </div>
                             </div>
                         )}
